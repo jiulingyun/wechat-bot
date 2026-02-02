@@ -191,6 +191,7 @@ Configure in `src/data/wechat_config.json`:
 - Ensure runtime environment security, update dependencies regularly
 - Carefully handle sensitive information, follow least privilege principle
 - Monitor bot behavior to prevent abuse
+- Project configured with .gitignore to exclude sensitive files (.env.*, *.pem, etc.)
 
 ## 🤝 Contribution Guidelines
 
