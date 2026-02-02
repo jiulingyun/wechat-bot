@@ -1,0 +1,95 @@
+# Dependencies
+node_modules/
+
+# Builds
+/dist
+/build
+/out
+
+# Environment variables
+.env*
+!.env.example
+
+# Logs
+logs/
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+.nyc_output
+
+# Grunt intermediate storage (https://gruntjs.com/creating-plugins#storing-task-files)
+.grunt
+
+# Bower dependency directory (https://bower.io/)
+bower_components
+
+# node-waf configuration
+.lock-wscript
+
+# Compiled binary addons (https://nodejs.org/api/addons.html)
+build/Release
+
+# Dependency directories
+node-gyp
+.nodelet
+
+# Typescript output
+*.tsbuildinfo
+dist/
+tmp/
+compiled/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# dotenv environment variables file
+.env.test
+
+# TypeScript coverage
+coverage/
+
+# Debug files
+debug.log
+
+# Mac
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Icon?
+desktop.ini
+
+# Linux
+*~
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Certificates
+*.crt
+*.key
+*.pem
+
+# Sensitive data
+coze_private_key.pem
+private_key.pem

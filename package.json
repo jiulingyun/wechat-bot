@@ -1,13 +1,36 @@
 {
   "name": "wechat-ferry",
   "version": "1.0.0",
+  "description": "An intelligent personal agent that combines WeChat protocols with Coze API to create an AI-powered chatbot capable of automatically handling WeChat messages.",
+  "main": "dist/app.js",
   "type": "module",
   "scripts": {
     "dev": "ts-node --transpile-only -r tsconfig-paths/register src/app.ts --env development",
     "test": "ts-node --transpile-only -r tsconfig-paths/register src/app.ts --env test",
     "build": "tsc",
-    "start": "node -r tsconfig-paths/register dist/app.js --env production"
+    "start": "node -r tsconfig-paths/register dist/app.js --env production",
+    "lint": "eslint src/**/*.ts",
+    "prepublishOnly": "npm run build"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iantsai/wechat-bot.git"
+  },
+  "keywords": [
+    "wechat",
+    "bot",
+    "ai",
+    "coze",
+    "automation",
+    "personal-agent",
+    "wechat-api"
+  ],
+  "author": "iantsai",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/iantsai/wechat-bot/issues"
+  },
+  "homepage": "https://github.com/iantsai/wechat-bot#readme",
   "devDependencies": {
     "@types/better-sqlite3": "^7.6.13",
     "@types/express": "^5.0.3",
@@ -15,7 +38,10 @@
     "@wechatferry/agent": "^0.0.26",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.2",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "eslint": "^8.56.0"
   },
   "dependencies": {
     "@coze/api": "^1.3.5",
