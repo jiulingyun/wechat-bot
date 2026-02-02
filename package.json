@@ -1,0 +1,31 @@
+{
+  "name": "wechat-ferry",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "ts-node --transpile-only -r tsconfig-paths/register src/app.ts --env development",
+    "test": "ts-node --transpile-only -r tsconfig-paths/register src/app.ts --env test",
+    "build": "tsc",
+    "start": "node -r tsconfig-paths/register dist/app.js --env production"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.2.0",
+    "@wechatferry/agent": "^0.0.26",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "@coze/api": "^1.3.5",
+    "@types/express": "^5.0.3",
+    "@wechatferry/agent": "^0.0.26",
+    "axios": "^1.11.0",
+    "better-sqlite3": "^12.2.0",
+    "dayjs": "^1.11.13",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "fast-xml-parser": "^5.2.5"
+  }
+}

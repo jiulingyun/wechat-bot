@@ -1,0 +1,33 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "moduleResolution": "node",
+        "baseUrl": "./",
+        "declaration": true,
+        "declarationMap": true,
+        "outDir": "./dist",
+        "importHelpers": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "module": "commonjs",
+        "forceConsistentCasingInFileNames": true,
+        "strict": true,
+        "noImplicitOverride": true,
+        "noPropertyAccessFromIndexSignature": true,
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
+        "rootDir": "."
+    },
+    "files": [],
+    "include": [],
+    "references": [
+        {
+            "path": "./tsconfig.lib.json"
+        },
+        {
+            "path": "./tsconfig.spec.json"
+        }
+    ]
+}

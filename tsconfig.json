@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+      "target": "es2017",
+      "module": "esnext",
+      "moduleResolution": "node",
+      "outDir": "./dist",
+      "rootDir": "./src",
+      "strict": true,
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true,
+      "allowSyntheticDefaultImports": true,
+      "allowImportingTsExtensions": true,
+      "resolveJsonModule": true,
+      "baseUrl": ".",
+      "paths": {
+        "@src/*": ["src/*"],
+        "@src/config/loader": ["src/config/loader.ts"],
+        "@src/core/wechat_manager": ["src/core/wechat_manager.ts"]
+      },
+      "types": ["node"]
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules"]
+  }
