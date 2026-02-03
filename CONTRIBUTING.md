@@ -6,6 +6,14 @@
 
 感谢您有兴趣为 WeChat-Ferry 项目做出贡献！WeChat-Ferry 是一个智能微信机器人项目，结合了WeChat Ferry和Coze API，能够自动处理微信消息。以下是参与项目开发的指南。
 
+## 📚 项目文档
+
+WeChat-Ferry 项目包含详细的文档，帮助开发者理解和使用系统：
+
+- **架构文档** (`docs/architecture.md`) - 系统架构图和模块职责说明
+- **模块文档** (`docs/modules.md`) - 各模块的详细职责和功能说明
+- **消息流文档** (`docs/message_flow.md`) - 详细的消息处理流程和数据流向
+
 ### 开发环境设置
 
 1. Fork 此仓库到您的账户
@@ -78,6 +86,14 @@ git push origin feature/your-feature-name
 ## English
 
 Thank you for your interest in contributing to the WeChat-Ferry project! WeChat-Ferry is an intelligent WeChat bot project that combines WeChat Ferry and Coze API to automatically handle WeChat messages. Here are the guidelines for participating in project development.
+
+## 📚 Project Documentation
+
+The WeChat-Ferry project includes detailed documentation to help developers understand and use the system:
+
+- **Architecture Document** (`docs/architecture.md`) - System architecture diagram and module responsibilities
+- **Modules Document** (`docs/modules.md`) - Detailed module responsibilities and functionality
+- **Message Flow Document** (`docs/message_flow.md`) - Detailed message processing flows and data flow
 
 ### Setting Up Development Environment
 

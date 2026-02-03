@@ -111,6 +111,11 @@ wechat-bot/
 │   ├── data/              # 数据文件
 │   │   └── wechat_config.json # 微信配置
 │   └── tests/             # 测试文件
+├── docs/                  # 项目文档
+│   ├── README.md          # 文档概述
+│   ├── architecture.md    # 系统架构和模块职责
+│   ├── modules.md         # 模块职责详解
+│   └── message_flow.md    # 消息流详解
 ├── logs/                  # 日志目录
 ├── .env.development       # 开发环境配置
 ├── .env.production        # 生产环境配置
