@@ -12,7 +12,7 @@ WeChat-Ferry 实现了复杂的消息处理流水线，涵盖从微信消息接�
 graph TD
     A[微信客户端发送消息] --> B[WechatferryAgent接收]
     B --> C[触发message事件]
-    C --> D[WechatManager.handleMessage()]
+    C --> D[WechatManager\.handleMessage\(\)]
     D --> E{判断消息类型}
     E -->|文本| F[handleTextMessage]
     E -->|图片| G[handleImageMessage]
@@ -24,14 +24,14 @@ graph TD
     E -->|验证| M[handleVerifyMessage]
     E -->|引用回复| N[handleQuoteReplyMessage]
     F --> O[添加到消息缓冲区]
-    G --> P[上传文件到Coze -> 添加到缓冲区]
-    H --> Q[语音转文字 -> 添加到缓冲区]
-    I --> R[上传视频到Coze -> 添加到缓冲区]
-    J --> S[上传文件到Coze -> 添加到缓冲区]
-    K --> T[解密表情 -> 上传到Coze -> 添加到缓冲区]
+    G --> P[上传文件到Coze -\-> 添加到缓冲区]
+    H --> Q[语音转文字 -\-> 添加到缓冲区]
+    I --> R[上传视频到Coze -\-> 添加到缓冲区]
+    J --> S[上传文件到Coze -\-> 添加到缓冲区]
+    K --> T[解密表情 -\-> 上传到Coze -\-> 添加到缓冲区]
     L --> U[调用Coze API]
-    M --> V[解析XML -> 调用Coze API]
-    N --> W[解析引用内容 -> 添加到缓冲区]
+    M --> V[解析XML -\-> 调用Coze API]
+    N --> W[解析引用内容 -\-> 添加到缓冲区]
 ```
 
 ### 2.2 消息缓冲与队列机制
@@ -50,7 +50,7 @@ graph LR
     H --> I[调用Coze API处理]
     I --> J{Coze API调用成功?}
     J -->|是| K[获取AI响应]
-    J -->|否| L[错误处理 - 发送备用回复]
+    J -->|否| L[错误处理 -\- 发送备用回复]
     K --> M[通过微信发送回复]
     L --> N[记录错误日志]
 ```
@@ -59,7 +59,7 @@ graph LR
 
 ### 3.1 文本消息流
 
-````
+```
 微信客户端 → WechatferryAgent → WechatManager.handleTextMessage() 
 → addToMessageBuffer() → processMessageBuffer() → CozeManager.chat() 
 → Coze API → AI响应 → cozeReplyTextMessage() → 微信回复
@@ -77,7 +77,7 @@ graph LR
 
 ### 3.2 多媒体消息流（以图片为例）
 
-````
+```
 微信客户端发送图片 → WechatferryAgent → WechatManager.handleImageMessage() 
 → uploadFileToCoze() → 文件上传到Coze → addToMessageBuffer() 
 → processMessageBuffer() → CozeManager.chat() → Coze API 
@@ -94,7 +94,7 @@ graph LR
 
 ### 3.3 语音消息流
 
-````
+```
 微信语音消息 → 语音文件下载 → 语音转文字 → 文本消息处理流程
 ```
 
@@ -105,7 +105,7 @@ graph LR
 
 ### 3.4 引用回复消息流
 
-````
+```
 引用回复消息 → XML解析 → 提取引用内容 → 构建上下文 → AI处理
 ```
 
@@ -119,14 +119,14 @@ graph LR
 
 ### 4.1 消息处理队列
 
-````
+```
 用户A消息1 → [用户A队列] → 用户A消息2 → [用户A队列] → 按序处理
 用户B消息1 → [用户B队列] → 用户B消息2 → [用户B队列] → 按序处理
 ```
 
 ### 4.2 消息发送队列
 
-````
+```
 AI响应1 → [发送队列A] → AI响应2 → [发送队列A] → 按序发送给用户A
 AI响应1 → [发送队列B] → AI响应2 → [发送队列B] → 按序发送给用户B
 ```
@@ -138,7 +138,7 @@ AI响应1 → [发送队列B] → AI响应2 → [发送队列B] → 按序发送
 ```mermaid
 graph TD
     A[开始AI处理] --> B[设置敷衍回复定时器]
-    B --> C{AI响应是否超时?}
+    B --> C{AI响应是否超时}
     C -->|否| D[正常获取AI响应]
     C -->|是| E[启动敷衍回复工作流]
     D --> F[取消敷衍回复定时器]
@@ -151,13 +151,13 @@ graph TD
 
 ### 5.2 未读消息处理流
 
-````
+```
 系统启动 → 检查上次退出时间 → 获取未读消息 → 提交给AI处理 → AI生成上下文回复
 ```
 
 ### 5.3 好友验证处理流
 
-````
+```
 好友验证请求 → XML解析 → 用户信息提取 → 图像分析（头像、背景） → AI分析验证信息 → 自动接受 → 通知AI
 ```
 
@@ -167,15 +167,15 @@ graph TD
 
 ```mermaid
 graph TD
-    A[调用Coze API] --> B{API调用成功?}
+    A[调用Coze API] --> B{API调用成功}
     B -->|是| C[处理正常响应]
     B -->|否| D[检查错误类型]
-    D --> E{是否为网络错误?}
+    D --> E{是否为网络错误}
     E -->|是| F[重试机制]
-    E -->|否| G{是否为认证错误?}
+    E -->|否| G{是否为认证错误}
     G -->|是| H[刷新Token后重试]
     G -->|否| I[记录错误日志]
-    F --> J{重试成功?}
+    F --> J{重试成功}
     J -->|是| C
     J -->|否| K[发送错误提示给用户]
     I --> K
@@ -185,7 +185,7 @@ graph TD
 
 ### 6.2 消息发送错误处理
 
-````
+```
 发送消息 → 检查发送状态 → {发送成功?} → |是| 结束 |否| 记录错误日志
 ```
 
@@ -208,7 +208,7 @@ graph TD
 
 ## 8. 数据流向
 
-````
+```
 微信消息 → WechatManager → 缓冲区 → CozeManager → Coze API → AI响应 
 → WechatManager → 消息队列 → 微信发送 → 用户接收
 ```
