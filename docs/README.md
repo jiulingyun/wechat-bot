@@ -7,6 +7,7 @@ WeChat-Ferry 是一个智能微信机器人项目，结合了WeChat Ferry和Coze
 1. [架构图和模块职责](./architecture.md) - 系统架构图、各模块/代理职责和代理间的消息流
 2. [模块职责详解](./modules.md) - 各模块的详细职责和功能说明
 3. [消息流详解](./message_flow.md) - 详细的消息处理流程和数据流向
+4. [多Agent架构图](./multi_agent_architecture.md) - 多Agent系统架构和工作流协作机制
 
 ## 项目概述
 

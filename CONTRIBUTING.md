@@ -13,6 +13,7 @@ WeChat-Ferry 项目包含详细的文档，帮助开发者理解和使用系统�
 - **架构文档** (`docs/architecture.md`) - 系统架构图和模块职责说明
 - **模块文档** (`docs/modules.md`) - 各模块的详细职责和功能说明
 - **消息流文档** (`docs/message_flow.md`) - 详细的消息处理流程和数据流向
+- **多Agent架构文档** (`docs/multi_agent_architecture.md`) - 多Agent系统架构和工作流协作机制
 
 ### 开发环境设置
 
